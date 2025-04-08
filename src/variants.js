@@ -1,6 +1,6 @@
 export function resetVariants() {
     let otherInputs = document.getElementById('otherInputs');
-    let variants = otherInputs.querySelectorAll('.flex.space-x-2.items-center');
+    let variants = otherInputs.querySelectorAll('.key-value-row');
     variants.forEach(variant => otherInputs.removeChild(variant));
 
     for (let i = 0; i < 2; i++) {
@@ -33,7 +33,7 @@ export function addVariantEventListener() {
     document.getElementById('addVariant').addEventListener('click', function() {
         let otherInputs = document.getElementById('otherInputs');
         let newVariant = document.createElement('div');
-        newVariant.className = 'flex space-x-2 items-center';
+        newVariant.className = 'flex space-x-2 items-center key-value-row';
         newVariant.innerHTML = `
         <div class="flex items-center">
             <button class="removeVariant text-red-500">

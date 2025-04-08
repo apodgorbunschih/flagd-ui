@@ -29,7 +29,7 @@
 
     <div id="booleanInputs" class="hidden flex-col space-y-2 w-full">
         <label class="text-lg font-medium text-gray-700">Variants</label>
-        <div class="flex space-x-2 items-center">
+        <div class="flex space-x-2 items-center key-value-row">
             <div class="flex flex-col w-full">
                 <label class="text-sm font-medium text-gray-700">Key</label>
                 <input type="text" value="true" class="key-true px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 w-full">
@@ -45,7 +45,7 @@
                 </button>
             </div>
         </div>
-        <div class="flex space-x-2 items-center">
+        <div class="flex space-x-2 items-center key-value-row">
             <div class="flex flex-col w-full">
                 <label class="text-sm font-medium text-gray-700">Key</label>
                 <input type="text" value="false" class="key-false px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 w-full">
@@ -64,7 +64,7 @@
     </div>
     <div id="otherInputs" class="hidden flex-col space-y-2 w-full">
         <label class="text-lg font-medium text-gray-700">Variants</label>
-        <div class="flex space-x-2 items-center">
+        <div class="flex space-x-2 items-center key-value-row">
             <div class="flex items-center">
                 <button class="removeVariant text-red-500">
                     &#10060; <!-- Red cross icon -->
@@ -79,7 +79,7 @@
                 <input type="text" class="px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 w-full">
             </div>
         </div>
-        <div class="flex space-x-2 items-center">
+        <div class="flex space-x-2 items-center key-value-row">
             <div class="flex items-center">
                 <button class="removeVariant text-red-500">
                     &#10060; <!-- Red cross icon -->
@@ -96,11 +96,25 @@
         </div>
         <button id="addVariant" class="px-4 py-2 bg-blue-500 text-white rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">Add New Variant</button>
     </div>
+
     <div id="jsonOutput" class="mt-4 p-4 bg-gray-200 rounded-lg w-full">
     <pre id="jsonResult" class="text-sm text-gray-800">
     </pre>
     </div>
     <button id="generateButton" class="mt-4 px-4 py-2 bg-green-500 text-white rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-75">Generate</button>
+
+    <div class="mt-4">
+        <button id="createRuleSet" class="px-4 py-2 bg-blue-500 text-white rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">Create Rule Set</button>
+    </div>
+    <div>
+        <div id="ruleSet" class="mt-4 p-4 bg-gray-200 rounded-lg w-full hidden">
+            <div  id="ruleSetContainer"></div>
+
+            <!-- Rule set inputs will be dynamically added here -->
+            <button id="appendButton" class="mt-4 px-4 py-2 bg-green-500 text-white rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-75">Append</button>
+        </div>
+    </div>
+
     <button id="validateButton" class="mt-4 px-4 py-2 bg-yellow-500 text-white rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-opacity-75">Validate</button>
     <div class="flex flex-col w-full">
         <label for="flagStateToggle" class="text-lg font-medium text-gray-700">Flag state</label>

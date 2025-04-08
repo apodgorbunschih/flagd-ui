@@ -1,7 +1,7 @@
 export async function validateJson() {
-    var jsonOutput = document.getElementById('jsonResult').textContent;
-    var jsonData = JSON.parse(jsonOutput);
-    var validationMessageDiv = document.getElementById('validationMessage');
+    let jsonOutput = document.getElementById('jsonResult').textContent;
+    let jsonData = JSON.parse(jsonOutput);
+    let validationMessageDiv = document.getElementById('validationMessage');
 
     try {
         const [schemaResponse, targetingResponse] = await Promise.all([
@@ -16,10 +16,10 @@ export async function validateJson() {
         const schema = await schemaResponse.json();
         const targetingSchema = await targetingResponse.json();
 
-        var ajv = new Ajv();
+        let ajv = new Ajv();
         ajv.addSchema(targetingSchema, 'https://flagd.dev/schema/v0/targeting.json');
-        var validate = ajv.compile(schema);
-        var valid = validate(jsonData);
+        let validate = ajv.compile(schema);
+        let valid = validate(jsonData);
 
         if (valid) {
             validationMessageDiv.textContent = 'JSON is valid!';

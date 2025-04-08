@@ -1,6 +1,9 @@
 import { validateJson } from './validation.js';
 import { createConfig } from './configuration.js';
 import { resetVariants, addVariantEventListener } from './variants.js';
+import { createRuleSet } from './rules.js';
+
+document.getElementById('createRuleSet').addEventListener('click', createRuleSet);
 
 addVariantEventListener();
 
