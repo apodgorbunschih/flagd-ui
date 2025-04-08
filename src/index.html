@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello FlagD</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet"> <!-- Correct the path to your custom CSS file -->
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+<h1 class="text-4xl font-bold text-blue-500 mb-4">Hello FlagD</h1>
+<div class="flex flex-col space-y-4 w-4/5">
+    <div class="flex flex-col w-full">
+        <label for="flagName" class="text-lg font-medium text-gray-700" >Flag Name</label>
+        <input id="flagName" value="CHANGE-ME" type="text" class="px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 w-full" placeholder="Enter flag name">
+    </div>
+    <div class="flex flex-col w-full">
+        <label for="flagType" class="text-lg font-medium text-gray-700">Flag Type</label>
+        <select id="flagType" class="px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 w-full">
+            <option value="" disabled selected>Select a flag type</option>
+            <option value="boolean">Boolean</option>
+            <option value="number">Number</option>
+            <option value="string">String</option>
+            <option value="object">Object</option>
+        </select>
+    </div>
+
+
+
+    <div id="booleanInputs" class="hidden flex-col space-y-2 w-full">
+        <label class="text-lg font-medium text-gray-700">Variants</label>
+        <div class="flex space-x-2 items-center">
+            <div class="flex flex-col w-full">
+                <label class="text-sm font-medium text-gray-700">Key</label>
+                <input type="text" value="true" class="key-true px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 w-full">
+            </div>
+            <div class="flex flex-col w-full">
+                <label class="text-sm font-medium text-gray-700">Value</label>
+                <input type="text" value="true" class="value-true px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 w-full" disabled>
+            </div>
+            <div class="flex flex-col">
+                <label class="text-sm font-medium text-gray-700">&nbsp;</label> <!-- Empty label for alignment -->
+                <button class="setDefaultVariant text-white bg-green-500 px-2 py-2 rounded">
+                    default
+                </button>
+            </div>
+        </div>
+        <div class="flex space-x-2 items-center">
+            <div class="flex flex-col w-full">
+                <label class="text-sm font-medium text-gray-700">Key</label>
+                <input type="text" value="false" class="key-false px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 w-full">
+            </div>
+            <div class="flex flex-col w-full">
+                <label class="text-sm font-medium text-gray-700">Value</label>
+                <input type="text" value="false" class="value-false px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 w-full" disabled>
+            </div>
+            <div class="flex flex-col">
+                <label class="text-sm font-medium text-gray-700">&nbsp;</label> <!-- Empty label for alignment -->
+                <button class="setDefaultVariant text-white bg-green-500 px-2 py-2 rounded">
+                    default
+                </button>
+            </div>
+        </div>
+    </div>
+    <div id="otherInputs" class="hidden flex-col space-y-2 w-full">
+        <label class="text-lg font-medium text-gray-700">Variants</label>
+        <div class="flex space-x-2 items-center">
+            <div class="flex items-center">
+                <button class="removeVariant text-red-500">
+                    &#10060; <!-- Red cross icon -->
+                </button>
+            </div>
+            <div class="flex flex-col w-full">
+                <label class="text-sm font-medium text-gray-700">Key</label>
+                <input type="text" class="px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 w-full">
+            </div>
+            <div class="flex flex-col w-full">
+                <label class="text-sm font-medium text-gray-700">Value</label>
+                <input type="text" class="px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 w-full">
+            </div>
+        </div>
+        <div class="flex space-x-2 items-center">
+            <div class="flex items-center">
+                <button class="removeVariant text-red-500">
+                    &#10060; <!-- Red cross icon -->
+                </button>
+            </div>
+            <div class="flex flex-col w-full">
+                <label class="text-sm font-medium text-gray-700">Key</label>
+                <input type="text" class="px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 w-full">
+            </div>
+            <div class="flex flex-col w-full">
+                <label class="text-sm font-medium text-gray-700">Value</label>
+                <input type="text" class="px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 w-full">
+            </div>
+        </div>
+        <button id="addVariant" class="px-4 py-2 bg-blue-500 text-white rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">Add New Variant</button>
+    </div>
+    <div id="jsonOutput" class="mt-4 p-4 bg-gray-200 rounded-lg w-full">
+    <pre id="jsonResult" class="text-sm text-gray-800">
+    </pre>
+    </div>
+    <button id="generateButton" class="mt-4 px-4 py-2 bg-green-500 text-white rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-75">Generate</button>
+    <button id="validateButton" class="mt-4 px-4 py-2 bg-yellow-500 text-white rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-opacity-75">Validate</button>
+    <div class="flex flex-col w-full">
+        <label for="flagStateToggle" class="text-lg font-medium text-gray-700">Flag state</label>
+        <label class="switch">
+            <input type="checkbox" id="flagStateToggle" checked>
+            <span class="slider round"></span>
+        </label>
+    </div>
+    <pre id="validationMessage" style="white-space: pre-wrap;"></pre>
+</div>
+<script type="module" src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/ajv@6.12.6/dist/ajv.min.js"></script>
+</body>
+</html>
